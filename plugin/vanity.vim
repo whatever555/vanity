@@ -38,10 +38,10 @@ function! s:SwitchCol(n)
 endfunction
 
 function! NextCol()
-  s:SwitchCol(1)
+  call s:SwitchCol(1)
 endfunction
 function! PrevCol()
-  s:SwitchCol(-1)
+  call s:SwitchCol(-1)
 endfunction
 
 function! s:SetColor(n, thenDc)
