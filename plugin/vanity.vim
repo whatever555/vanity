@@ -21,15 +21,6 @@ command! -nargs=* SetActiveColorschemes call s:SetActiveColorschemes('<args>')
 
 let s:setColorsCurrentIncrementTimer=0
 
-
-function! NextCol()
-  s:SwitchCol(1)
-endfunction
-function! PrevCol()
-  s:SwitchCol(-1)
-endfunction
-
-
 function! s:SwitchCol(n)
   let s:setColorsCurrentIncrementTimer+=1
   let l:ct = s:setColorsCurrentIncrementTimer
@@ -46,6 +37,12 @@ function! s:SwitchCol(n)
   echo l:nxtCol.": ".s:colschemes[l:nxtCol]
 endfunction
 
+function! NextCol()
+  s:SwitchCol(1)
+endfunction
+function! PrevCol()
+  s:SwitchCol(-1)
+endfunction
 
 function! s:SetColor(n, thenDc)
   if s:setColorsCurrentIncrementTimer !=1 && a:thenDc <s:setColorsCurrentIncrementTimer 
