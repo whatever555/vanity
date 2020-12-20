@@ -1,0 +1,17 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+NextCol	plugin/vanity.vim	/^function! NextCol()$/;"	f
+PrevCol	plugin/vanity.vim	/^function! PrevCol()$/;"	f
+SetActiveColorschemes	plugin/vanity.vim	/^command! -nargs=* SetActiveColorschemes call s:SetActiveColorschemes('<args>')$/;"	c
+g:vanity_unsupported_colors	plugin/vanity.vim	/^let g:vanity_unsupported_colors = ['tcsoft','surveyor','sunburst','soruby','guardian','grayorang/;"	v
+loaded_vanity	plugin/vanity.vim	/^let loaded_vanity = 1$/;"	v
+s:SetActiveColorschemes	plugin/vanity.vim	/^function! s:SetActiveColorschemes(conf)$/;"	f
+s:SetColor	plugin/vanity.vim	/^function! s:SetColor(n, thenDc)$/;"	f
+s:SwitchCol	plugin/vanity.vim	/^function! s:SwitchCol(n)$/;"	f
+s:colschemes	plugin/vanity.vim	/^let s:colschemes=getcompletion('', 'color')$/;"	v
+s:setColorsCurrentIncrementTimer	plugin/vanity.vim	/^let s:setColorsCurrentIncrementTimer=0$/;"	v
