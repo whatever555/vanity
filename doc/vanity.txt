@@ -30,7 +30,7 @@ https://github.com/mkarmona/colorsbox
 ==============================================================================
 3. Usage                                                *vanityUsage*
 
-To cycle through available colorthemes:  
+To cycle through available colorschemes:  
 next colour: `:call VNextCol()`   
 previous colour: `:call VPrevCol()`   
 random colour: `:call VRandCol()`   
@@ -50,7 +50,7 @@ To allow all colourthemes to be cycled:
 ------------------------------------------------------------------------------
 4. Files Locations                                       *vanityFiles*
 
-vanity stores your favourite colorthemes list in `~/.vim/Vanity/favouites`  
+vanity stores your favourite colorschemes list in `~/.vim/Vanity/favouites`  
 
 vanity stores your default colortheme in `~/.vim/Vanity/default`
 

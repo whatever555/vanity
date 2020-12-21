@@ -83,7 +83,7 @@ apt-vim install -y https://github.com/whatever555/vanity.git
 Usage
 ------------
 
-To cycle through available colorthemes:  
+To cycle through available colorschemes:  
 next colour:   
 `:call VNextCol()`   
 previous colour:   
