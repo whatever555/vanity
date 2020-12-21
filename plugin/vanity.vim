@@ -64,10 +64,26 @@ endfunction
 function! VPrevCol()
   call s:SwitchCol(-1)
 endfunction
+function! s:CheckForDefaultColourtheme()
+  if !exists("g:colors_name")
+    let g:colors_name=s:colschemes[0]
+    if filereadable(glob('~/.vim/Vanity/default'))
+      let g:colors_name=readfile(glob('~/.vim/Vanity/default'))[0]
+      let s:current = index(s:colschemes, g:colors_name)
+      if s:current > -1
+        call s:SetColor(s:current, 0)
+      endif
+    endif
+  endif
+endfunction
 
 function! s:SetColor(n, thenDc)
   if s:setColorsCurrentIncrementTimer !=1 && a:thenDc <s:setColorsCurrentIncrementTimer 
     return
+  endif
+
+  if !exists("g:colors_name")
+    call s:CheckForDefaultColourtheme()
   endif
 
   if len(s:colschemes) == 0
@@ -132,14 +148,5 @@ function! VRandCol()
   call s:SetColor(s:current-l:rand, 1)
 endfunction
 
-if !exists("g:colors_name")
-  let g:colors_name=s:colschemes[0]
-  if filereadable(glob('~/.vim/Vanity/default'))
-    let g:colors_name=readfile(glob('~/.vim/Vanity/default'))[0]
-    let s:current = index(s:colschemes, g:colors_name)
-    if s:current > -1
-      call s:SetColor(s:current, 0)
-    endif
-  endif
-endif
+call s:CheckForDefaultColourtheme()
 let s:fully_loaded_vanity = 1
