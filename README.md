@@ -86,6 +86,7 @@ Usage
 To cycle through available colorthemes:  
 next colour: `:call VNextCol()`   
 previous colour: `:call VPrevCol()`   
+random colour: `:call VRandCol()`   
   
 To set the current colorscheme to default:  
 `:call SetDefaultColorscheme()`   
