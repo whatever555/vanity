@@ -4,7 +4,8 @@ Vanity: Vim plugin for managing colorschemes
 Introduction
 ------------
 
-This plugin helps with managing colorschemes in vim.   
+This plugin helps with managing colorschemes in vim. It does not contain any actual colorthemes - for those you can install a separate plugin (listed below).  
+
 With this plugin installed you can:   
 1. Cycle through available colourschems  
 2. Set a default colourscheme   
