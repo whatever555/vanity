@@ -3,7 +3,8 @@ CONTENTS
     1.Intro...................................|vanity|
     2.Requirements............................|vanityRequirements|
     3.Usage...................................|vanityUsage|
-    4.License.................................|vanityLicense|
+    4.File Locations..........................|vanityFiles|
+    5.License.................................|vanityLicense|
 
 ==============================================================================
 1. Intro                                                *vanity*
@@ -45,9 +46,15 @@ To allow only your favourite colourthemes to be cycled:
 To allow all colourthemes to be cycled:  
 `call SetFavouriteColorSchemes()`  
   
+------------------------------------------------------------------------------
+4. Files Locations                                       *vanityFiles*
+
+vanity stores your favourite colorthemes list in `~/.vim/Vanity/favouites`  
+
+vanity stores your default colortheme in `~/.vim/Vanity/default`
 
 ------------------------------------------------------------------------------
-4. License                                              *vanityLicense*
+5. License                                              *vanityLicense*
 vanity uses the same licensing as NERDTree
 See http://sam.zoy.org/wtfpl/COPYING.
 
