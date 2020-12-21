@@ -12,7 +12,7 @@ With this plugin installed you can:
 3. Set a group of favourite colourschemes   
 
   
-![Screenshot](https://user-images.githubusercontent.com/1413475/102794155-d8715100-43a2-11eb-92a2-4aa7cc815833.gif)
+![Screenshot](https://user-images.githubusercontent.com/1413475/102798713-5f292c80-43a9-11eb-853b-6d7f83352d20.mp4)
 
 Requirements
 ------------
