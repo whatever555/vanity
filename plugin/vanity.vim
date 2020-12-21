@@ -128,7 +128,7 @@ function! VRandCol()
   s:setColorsCurrentIncrementTimer = 1
   let s:current = index(s:colschemes, g:colors_name)
   let l:rand = str2nr(matchstr(reltimestr(reltime()), '\v\.\zs\d+'))
-  let l:rand = l:rand % (len(s:colorschemes) - 0 + 1) + 0 
+  let l:rand = l:rand % (len(s:colschemes) - 0 + 1) + 0 
   call s:SetCol(s:current-l:rand, 1))
 endfunction
 
