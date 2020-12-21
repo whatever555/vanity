@@ -11,7 +11,7 @@ With this plugin installed you can:
 2. Set a default colourscheme   
 3. Set a group of favourite colourschemes   
 
-![Screenshot](https://user-images.githubusercontent.com/1413475/102800618-07d88b80-43ac-11eb-9ecb-6457d3f9aff7.gif)
+![Screenshot](https://user-images.githubusercontent.com/1413475/102801021-951be000-43ac-11eb-91d5-03cd65be287a.gif)
 
 [Video](https://user-images.githubusercontent.com/1413475/102798713-5f292c80-43a9-11eb-853b-6d7f83352d20.mp4)
 
