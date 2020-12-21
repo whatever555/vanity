@@ -129,7 +129,7 @@ function! VRandCol()
   let s:current = index(s:colschemes, g:colors_name)
   let l:rand = str2nr(matchstr(reltimestr(reltime()), '\v\.\zs\d+'))
   let l:rand = l:rand % (len(s:colschemes) - 0 + 1) + 0 
-  call s:SetColor(s:current-l:rand, 1))
+  call s:SetColor(s:current-l:rand, 1)
 endfunction
 
 if !exists("g:colors_name")
