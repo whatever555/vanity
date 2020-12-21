@@ -11,6 +11,9 @@ With this plugin installed you can:
 2. Set a default colourscheme   
 3. Set a group of favourite colourschemes   
 
+  
+![Screenshot](https://user-images.githubusercontent.com/1413475/102794155-d8715100-43a2-11eb-92a2-4aa7cc815833.gif)
+
 Requirements
 ------------
 You will need to have vim 8+ and  some colourschemes installed to get the most out of this plugin.  
