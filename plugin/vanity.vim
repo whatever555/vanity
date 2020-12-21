@@ -1,25 +1,51 @@
-if v:version < 800 || exists('loaded_vanity') || &cp
+if v:version < 800 || exists('initiated_vanity') || &cp
   finish
 endif
 
-let loaded_vanity = 1
+let initiated_vanity = 1
+let s:fully_loaded_vanity = 0
+
+silent !mkdir ~/.vim/Vanity > /dev/null 2>&1
+
+function! RandInt(Low, High) abort
+    let l:milisec = str2nr(matchstr(reltimestr(reltime()), '\v\.\zs\d+'))
+    return l:milisec % (a:High - a:Low + 1) + a:Low
+endfunction
 
 let g:vanity_unsupported_colors = ['tcsoft','surveyor','sunburst','soruby','guardian','grayorange','distill','edo_sea','editplus', 'dracula_bold','dracula','dark-ruby', 'corn','autumnleaf','AutumnLeaf','PaperColor', 'abyss','briofita','nordisk','mythos']
 
 let s:colschemes=getcompletion('', 'color')
 
 function! s:SetActiveColorschemes(conf)
-  if conf == 'all'
+  if a:conf == 'all'
     let s:colschemes=getcompletion('', 'color')
   endif 
-  if conf == 'faves'
-    let s:colschemes=readfile('.favouriteColourSchemes')
+  if a:conf == 'favourites'
+    let s:colschemes=readfile(glob('~/.vim/Vanity/favourites'))
   endif 
+endfunction
+
+function! SetFavouriteColorschemes()
+  call s:SetActiveColorschemes('favourites')
+endfunction
+
+function! SetAllColorschemes()
+  call s:SetActiveColorschemes('all')
 endfunction
 
 command! -nargs=* SetActiveColorschemes call s:SetActiveColorschemes('<args>')
 
 let s:setColorsCurrentIncrementTimer=0
+
+:function SaveFavColour()
+    :let c = g:colors_name
+    :call writefile([c], expand('~/.vim/Vanity/favourites'), "a")
+:endfunction
+
+:function SetDefaultColour()
+    :let c = g:colors_name
+    :call writefile([c], expand('~/.vim/Vanity/default'), "w")
+:endfunction
 
 function! s:SwitchCol(n)
   let s:setColorsCurrentIncrementTimer+=1
@@ -37,10 +63,10 @@ function! s:SwitchCol(n)
   echo l:nxtCol.": ".s:colschemes[l:nxtCol]
 endfunction
 
-function! NextCol()
+function! VNextCol()
   call s:SwitchCol(1)
 endfunction
-function! PrevCol()
+function! VPrevCol()
   call s:SwitchCol(-1)
 endfunction
 
@@ -87,7 +113,7 @@ function! s:SetColor(n, thenDc)
             echom "colour is configured incorrectly. name is set to  ".g:colors_name. " and it is listed as ".s:colschemes[s:next]
           endif
         catch /.*/
-          echo "there was an issue loading colour: ". s:colschemes[s:next]
+          echom "there was an issue loading colour: ". s:colschemes[s:next]
         endtry
     endif
     if s:next > s:current
@@ -98,6 +124,19 @@ function! s:SetColor(n, thenDc)
 
   endwhile
   redraw
-  echo s:next . ": " .g:colors_name
+  if s:fully_loaded_vanity == 1
+    echo s:next . ": " .g:colors_name
+  endif
 endfunction
 
+if !exists("g:colors_name")
+  let g:colors_name=s:colschemes[0]
+  if filereadable(glob('~/.vim/Vanity/default'))
+    let g:colors_name=readfile(glob('~/.vim/Vanity/default'))[0]
+    let s:current = index(s:colschemes, g:colors_name)
+    if s:current > -1
+      call s:SetColor(s:current, 0)
+    endif
+  endif
+endif
+let s:fully_loaded_vanity = 1
