@@ -129,6 +129,13 @@ function! s:SetColor(n, thenDc)
   endif
 endfunction
 
+function! VRandCol()
+  s:setColorsCurrentIncrementTimer = 1
+  let s:current = index(s:colschemes, g:colors_name)
+  let l:rand = RandInt(0, len(s:colorschemes))
+  call s:SetCol(s:current-l:rand, 1))
+endfunction
+
 if !exists("g:colors_name")
   let g:colors_name=s:colschemes[0]
   if filereadable(glob('~/.vim/Vanity/default'))

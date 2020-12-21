@@ -11,6 +11,7 @@ SetAllColorschemes	plugin/vanity.vim	/^function! SetAllColorschemes()$/;"	f
 SetFavouriteColorschemes	plugin/vanity.vim	/^function! SetFavouriteColorschemes()$/;"	f
 VNextCol	plugin/vanity.vim	/^function! VNextCol()$/;"	f
 VPrevCol	plugin/vanity.vim	/^function! VPrevCol()$/;"	f
+VRandCol	plugin/vanity.vim	/^function! VRandCol()$/;"	f
 g:colors_name	plugin/vanity.vim	/^    let g:colors_name=readfile(glob('~\/.vim\/Vanity\/default'))[0]$/;"	v
 g:colors_name	plugin/vanity.vim	/^  let g:colors_name=s:colschemes[0]$/;"	v
 g:vanity_unsupported_colors	plugin/vanity.vim	/^let g:vanity_unsupported_colors = ['tcsoft','surveyor','sunburst','soruby','guardian','grayorang/;"	v
