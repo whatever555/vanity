@@ -1,0 +1,53 @@
+CONTENTS
+
+    1.Intro...................................|vanity|
+    2.Requirements............................|vanityRequirements|
+    3.Usage...................................|vanityUsage|
+    4.License.................................|vanityLicense|
+
+==============================================================================
+1. Intro                                                *vanity*
+
+The vanity allows you to switch betwwen available colourschmems in a simple way 
+
+==============================================================================
+2. Requirements                                         *vanityRequirements*
+
+You will need to have vim 8+ and  some colourschemes installed to get the most out of this plugin.  
+Here are some options:    
+https://github.com/flazz/vim-colorschemes  
+https://vimawesome.com/plugin/awesome-vim-colorschemes  
+https://vimawesome.com/plugin/vim-colorschemes-sweeter-than-fiction  
+https://github.com/mcchrish/vim-no-color-collections  
+https://github.com/rainglow/vim  
+https://github.com/nightsense/vimspectr  
+https://github.com/chriskempson/base16-vim  
+https://github.com/mswift42/vim-themes  
+https://github.com/mkarmona/colorsbox  
+
+
+==============================================================================
+3. Usage                                                *vanityUsage*
+
+To cycle through available colorthemes:  
+next colour: `:call VNextCol()`   
+previous colour: `:call VPrevCol()`   
+  
+To set the current colorscheme to default:  
+`:call SetDefaultColorscheme()`   
+  
+To save the current colorscheme to your list of favourites:  
+`:call SaveFavColor()`   
+  
+To allow only your favourite colourthemes to be cycled:  
+`call SetFavouriteColorSchemes()`  
+
+To allow all colourthemes to be cycled:  
+`call SetFavouriteColorSchemes()`  
+  
+
+------------------------------------------------------------------------------
+4. License                                              *vanityLicense*
+vanity uses the same licensing as NERDTree
+See http://sam.zoy.org/wtfpl/COPYING.
+
