@@ -103,7 +103,7 @@ To view and edit favourite colour list:
 `coming soon`
 
 
-Mappings
+Recomended Mappings
 ------------
 There are no mapped keys but you can add this to your `.vimrc` file to enable colorscheme cycling with PageUp and PageDown keys
   
