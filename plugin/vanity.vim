@@ -7,11 +7,6 @@ let s:fully_loaded_vanity = 0
 
 silent !mkdir ~/.vim/Vanity > /dev/null 2>&1
 
-function! RandInt(Low, High) abort
-    let l:milisec = str2nr(matchstr(reltimestr(reltime()), '\v\.\zs\d+'))
-    return l:milisec % (a:High - a:Low + 1) + a:Low
-endfunction
-
 let g:vanity_unsupported_colors = ['tcsoft','surveyor','sunburst','soruby','guardian','grayorange','distill','edo_sea','editplus', 'dracula_bold','dracula','dark-ruby', 'corn','autumnleaf','AutumnLeaf','PaperColor', 'abyss','briofita','nordisk','mythos']
 
 let s:colschemes=getcompletion('', 'color')
@@ -132,7 +127,8 @@ endfunction
 function! VRandCol()
   s:setColorsCurrentIncrementTimer = 1
   let s:current = index(s:colschemes, g:colors_name)
-  let l:rand = RandInt(0, len(s:colorschemes))
+  let l:rand = str2nr(matchstr(reltimestr(reltime()), '\v\.\zs\d+'))
+  let l:rand = l:rand % (len(s:colorschemes) - 0 + 1) + 0 
   call s:SetCol(s:current-l:rand, 1))
 endfunction
 
