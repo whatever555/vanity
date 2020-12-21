@@ -97,10 +97,10 @@ To set the current colorscheme to default:
 To save the current colorscheme to your list of favourites:  
 `:call SaveFavColor()`   
   
-To allow only your favourite colourthemes to be cycled:  
+To allow only your favourite colorschemes to be cycled:  
 `call SetFavouriteColorSchemes()`  
 
-To allow all colourthemes to be cycled:  
+To allow all colorschemes to be cycled:  
 `call SetFavouriteColorSchemes()`  
   
 To view and edit favourite colour list:  
