@@ -37,12 +37,12 @@ command! -nargs=* SetActiveColorschemes call s:SetActiveColorschemes('<args>')
 
 let s:setColorsCurrentIncrementTimer=0
 
-:function SaveFavColour()
+:function SaveFavColor()
     :let c = g:colors_name
     :call writefile([c], expand('~/.vim/Vanity/favourites'), "a")
 :endfunction
 
-:function SetDefaultColour()
+:function SetDefaultColor()
     :let c = g:colors_name
     :call writefile([c], expand('~/.vim/Vanity/default'), "w")
 :endfunction
