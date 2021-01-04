@@ -33,7 +33,7 @@ https://github.com/mkarmona/colorsbox
 Basic Installation
 ------------
 
-For a more detailed explanation and for more installation options see (Detailed Installation)[#detailed-installation]
+For a more detailed explanation and for more installation options see [Detailed Installation](#detailed-installation)
 
 #### [Vundle.vim](https://github.com/VundleVim/Vundle.vim)
 ```vim
@@ -72,7 +72,7 @@ When you come across a colour scheme you LOVE call `:VanitySetDefaultColorForFil
 
 
 ### Default Colorschemes
-`VanityLoadDefaultColortheme`: Set colourtheme to default (for current filetype if set, otherwise it will set to 'allFiles' default type)      
+`VanityLoadDefaultColorscheme`: Set colourscheme to default (for current filetype if set, otherwise it will set to 'allFiles' default type)      
 
 Recommended Mappings
 ------------

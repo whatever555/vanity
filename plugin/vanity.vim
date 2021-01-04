@@ -15,10 +15,10 @@ let g:vanity_favourite_colors = {}
 
 function! s:SetActiveColorschemes(conf)
   if a:conf == 'file favourites'
-    :call s:LoadFavouriteColorthemes(&filetype)
+    :call s:LoadFavouriteColorschemes(&filetype)
   endif 
   if a:conf == 'favourites'
-    :call s:LoadFavouriteColorthemes('allFiles')
+    :call s:LoadFavouriteColorschemes('allFiles')
   endif 
   if a:conf == 'all'
     let s:colschemes=getcompletion('', 'color')
@@ -94,8 +94,8 @@ command! VanitySetDefaultColorForFiletype call SetDefaultColorForFiletype(&filet
 command! VanitySaveFavColor call SaveFavColor()
 command! VanitySetAllColorschemes call SetAllColorschemes()
 command! VanitySaveFavColorForFileType call SaveFavColorForFileType(&filetype)
-command! VanityLoadDefaultColortheme call s:LoadDefaultColortheme(&filetype)
-command! VanityLoadFavouriteColorthemes call s:LoadFavouriteColorthemes(&filetype)
+command! VanityLoadDefaultColorscheme call s:LoadDefaultColorscheme(&filetype)
+command! VanityLoadFavouriteColorschemes call s:LoadFavouriteColorschemes(&filetype)
 command! VanityCycleFavourites call SetFavouriteColorschemes()
 command! VanityCycleFavouritesForFiletype call SetFavouriteColorschemesForFiletype()
 command! VanityCycleAll call SetAllColorschemes()
@@ -117,7 +117,7 @@ function! s:EnsureColorValueIsSet()
   endif
 endfunction
 
-function! s:LoadDefaultColortheme(file_type)
+function! s:LoadDefaultColorscheme(file_type)
   call s:EnsureColorValueIsSet()
   if filereadable(glob('~/.vim/Vanity/default'))
     let l:d_cs=readfile(glob('~/.vim/Vanity/default'))[0]
@@ -138,7 +138,7 @@ function! s:LoadDefaultColortheme(file_type)
   endif
 endfunction
 
-function! s:LoadFavouriteColorthemes(file_type)
+function! s:LoadFavouriteColorschemes(file_type)
   call s:EnsureColorValueIsSet()
   let l:favs = []
   if filereadable(glob('~/.vim/Vanity/favourites'))
@@ -227,7 +227,7 @@ endfunction
     syntax reset
     endif
     " Set colour scheme
-    autocmd BufNewFile,BufRead * :VanityLoadDefaultColortheme
+    autocmd BufNewFile,BufRead * :VanityLoadDefaultColorscheme
 :augroup END
 
 let s:fully_loaded_vanity = 1
