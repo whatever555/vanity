@@ -46,15 +46,14 @@ let s:setColorsCurrentIncrementTimer=0
 :endfunction
 
 :function SaveFavColorForFileType(file_type)
+    call s:LoadFavColsToVar()
     :let c = g:colors_name
-    if !exists("g:vanity_favourite_colors")
-      :let g:vanity_favourite_colors = {}
-    endif 
-    if !has_key(g:vanity_favourite_colors, a:file_type)
-      :let g:vanity_favourite_colors[a:file_type] = []
+    if !has_key(s:favourite_colors, a:file_type)
+      :let s:favourite_colors[a:file_type] = []
     endif
-    :call add(g:vanity_favourite_colors[a:file_type], c)
-    :call writefile([string(g:vanity_favourite_colors)], expand('~/.vim/Vanity/favouriteColorSchemes'), "w")
+    :call add(s:favourite_colors[a:file_type], c)
+call filter(s:favourite_colors[a:file_type], 'count(s:favourite_colors[a:file_type], v:val) == 1')
+    :call writefile([string(s:favourite_colors)], expand('~/.vim/Vanity/favouriteColorSchemes'), "w")
 :endfunction
 
 :function SetDefaultColorForFiletype(file_type)
@@ -146,26 +145,28 @@ function! s:LoadDefaultColorscheme(file_type)
   endif
 endfunction
 
-function! s:LoadFavouriteColorschemes(file_type)
-  call s:EnsureColorValueIsSet()
-  let l:favs = []
+function! s:LoadFavColsToVar()
+  let s:favourite_colors = {}
   if filereadable(glob('~/.vim/Vanity/favouriteColorSchemes'))
     let l:fav_io=readfile(glob('~/.vim/Vanity/favouriteColorSchemes'))[0]
-    execute 'let l:favourite_colors = ' . l:fav_io
-    let l:favourite_colors = extend(l:favourite_colors, g:vanity_favourite_colors)
+    execute 'let s:favourite_colors = ' . l:fav_io
+  endif
+endfunction
+
+function! s:LoadFavouriteColorschemes(file_type)
+    call s:LoadFavColsToVar()
+    call s:EnsureColorValueIsSet()
+    let l:favourite_colors = extend(s:favourite_colors, g:vanity_favourite_colors)
     if exists("l:favourite_colors")
       if has_key(l:favourite_colors, a:file_type)
         let l:favs = l:favourite_colors[a:file_type] 
       else 
-        echom "No favourites set for this file type. To set a favourite use the :VanitySaveFavColorForFileType command"
+        echom "No favourites set for this file type. To set a favourite use the :VanitySaveFavColorForFileType command".a:file_type
         let l:favs=getcompletion('', 'color')
       endif
     endif
     :call add(l:favs, g:colors_name)
     let s:colschemes=uniq(l:favs)
-  else
-      echom "No favourites set. To set a favourite use the :VanitySaveFavColor command"
-  endif
 endfunction
 
 function! s:SetColor(n, thenDc)
