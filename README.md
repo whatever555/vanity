@@ -54,16 +54,16 @@ When you come across a colour scheme you LOVE call `:VanitySetDefaultColorForFil
 `:VanitySetDefaultColorForFiletype`: Set default color scheme for current file type   
 
 #### Favourite Colorschemes
-`VanitySaveFavColor`: Save a favourite colourscheme (for all filetypes)   
-`VanitySaveFavColorForFileType`: Save a favourite colourscheme (for crrrent filetype)   
+`:VanitySaveFavColor`: Save a favourite colourscheme (for all filetypes)   
+`:VanitySaveFavColorForFileType`: Save a favourite colourscheme (for crrrent filetype)   
 
-`VanityCycleAll`:  Set current list of cyclable colorschemes to all available    
-`VanityCycleFavourites`:  Set current list of cyclable colorschemes to favourites only (for all filetypes)    
-`VanityCycleFavouritesForFiletype`:  Set current list of cyclable colorschemes to favourites only (for current filetype only)    
+`:VanityCycleAll`:  Set current list of cyclable colorschemes to all available    
+`:VanityCycleFavourites`:  Set current list of cyclable colorschemes to favourites only (for all filetypes)    
+`:VanityCycleFavouritesForFiletype`:  Set current list of cyclable colorschemes to favourites only (for current filetype only)    
 
 
 #### Default Colorschemes
-`VanityLoadDefaultColorscheme`: Set colourscheme to default (for current filetype if set, otherwise it will set to 'allFiles' default type)      
+`:VanityLoadDefaultColorscheme`: Set colourscheme to default (for current filetype if set, otherwise it will set to 'allFiles' default type)      
 
 Configuration 
 ------------
