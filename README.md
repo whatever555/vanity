@@ -11,6 +11,10 @@ With this plugin installed you can:
 2. Set a default colourscheme   
 3. Set a group of favourite colourschemes   
 
+![Screenshot](https://user-images.githubusercontent.com/1413475/102801021-951be000-43ac-11eb-91d5-03cd65be287a.gif)
+
+[Video](https://user-images.githubusercontent.com/1413475/102798713-5f292c80-43a9-11eb-853b-6d7f83352d20.mp4)
+
 Requirements
 ------------
 You will need to have vim 8+ and  some colourschemes installed to get the most out of this plugin.  
@@ -124,3 +128,8 @@ Help
 
 `:help vanity`
 
+
+Demo
+------------
+
+![Screenshot](https://user-images.githubusercontent.com/1413475/102799675-c0053480-43aa-11eb-813b-32c6db54f84e.gif)
