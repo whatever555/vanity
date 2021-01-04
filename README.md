@@ -84,7 +84,7 @@ g:vanity_favourite_colors = {
 
 ```
 
-To set a default or favouritete colorscheme for all filetypes you can use the 'allFiles' key. 
+To set a default or favourite colorscheme for all filetypes you can use the 'allFiles' key. 
 eg:  
 
 ```
