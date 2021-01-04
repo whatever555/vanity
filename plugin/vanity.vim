@@ -47,11 +47,11 @@ let s:setColorsCurrentIncrementTimer=0
 
 :function SaveFavColorForFileType(file_type)
     call s:LoadFavColsToVar()
-    :let c = g:colors_name
+    :let l:c = g:colors_name
     if !has_key(s:favourite_colors, a:file_type)
       :let s:favourite_colors[a:file_type] = []
     endif
-    :call add(s:favourite_colors[a:file_type], c)
+    :call add(s:favourite_colors[a:file_type], l:c)
 call filter(s:favourite_colors[a:file_type], 'count(s:favourite_colors[a:file_type], v:val) == 1')
     :call writefile([string(s:favourite_colors)], expand('~/.vim/Vanity/favouriteColorSchemes'), "w")
 :endfunction
