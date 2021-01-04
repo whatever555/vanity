@@ -10,18 +10,27 @@ silent !mkdir ~/.vim/Vanity > /dev/null 2>&1
 let g:vanity_unsupported_colors = ['tcsoft','surveyor','sunburst','soruby','guardian','grayorange','distill','edo_sea','editplus', 'dracula_bold','dracula','dark-ruby', 'corn','autumnleaf','AutumnLeaf','PaperColor', 'abyss','briofita','nordisk','mythos']
 
 let s:colschemes=getcompletion('', 'color')
+let g:vanity_default_colors = {}
+let g:vanity_favourite_colors = {}
 
 function! s:SetActiveColorschemes(conf)
-  if a:conf == 'all'
-    let s:colschemes=getcompletion('', 'color')
+  if a:conf == 'file favourites'
+    :call s:LoadFavouriteColorthemes(&filetype)
   endif 
   if a:conf == 'favourites'
-    let s:colschemes=readfile(glob('~/.vim/Vanity/favourites'))
+    :call s:LoadFavouriteColorthemes('allFiles')
+  endif 
+  if a:conf == 'all'
+    let s:colschemes=getcompletion('', 'color')
   endif 
 endfunction
 
 function! SetFavouriteColorschemes()
   call s:SetActiveColorschemes('favourites')
+endfunction
+
+function! SetFavouriteColorschemesForFiletype()
+  call s:SetActiveColorschemes('file favourites')
 endfunction
 
 function! SetAllColorschemes()
@@ -33,13 +42,32 @@ command! -nargs=* SetActiveColorschemes call s:SetActiveColorschemes('<args>')
 let s:setColorsCurrentIncrementTimer=0
 
 :function SaveFavColor()
+    :call SaveFavColorForFileType('allFiles')
+:endfunction
+
+:function SaveFavColorForFileType(file_type)
     :let c = g:colors_name
-    :call writefile([c], expand('~/.vim/Vanity/favourites'), "a")
+    if !exists("g:vanity_favourite_colors")
+      :let g:vanity_favourite_colors = {}
+    endif 
+    if !has_key(g:vanity_favourite_colors, a:file_type)
+      :let g:vanity_favourite_colors[a:file_type] = []
+    endif
+    :call add(g:vanity_favourite_colors[a:file_type], c)
+    :call writefile([string(g:vanity_favourite_colors)], expand('~/.vim/Vanity/favourites'), "w")
+:endfunction
+
+:function SetDefaultColorForFiletype(file_type)
+    :let c = g:colors_name
+    if !exists("s:default_colors")
+      :let s:default_colors = {}
+    endif 
+    :let s:default_colors[a:file_type] = c
+    :call writefile([string(s:default_colors)], expand('~/.vim/Vanity/default'), "w")
 :endfunction
 
 :function SetDefaultColor()
-    :let c = g:colors_name
-    :call writefile([c], expand('~/.vim/Vanity/default'), "w")
+    :call SetDefaultColorForFiletype('allFiles')
 :endfunction
 
 function! s:SwitchCol(n)
@@ -58,36 +86,74 @@ function! s:SwitchCol(n)
   echo l:nxtCol.": ".s:colschemes[l:nxtCol]
 endfunction
 
-command! VNextCol call s:SwitchCol(1)
-command! VPrevCol call s:SwitchCol(-1)
-command! VRandCol call VRandCol()
-command! SetDefaultColor call SetDefaultColor()
-command! SaveFavColor call SaveFavColor()
-command! SetFavouriteColorschemes call SetFavouriteColorschemes()
-command! SetAllColorschemes call SetAllColorschemes()
-
-
-
+command! VanityNextCol call s:SwitchCol(1)
+command! VanityPrevCol call s:SwitchCol(-1)
+command! VanityRandomCol call VRandCol()
+command! VanitySetDefaultColor call SetDefaultColor()
+command! VanitySetDefaultColorForFiletype call SetDefaultColorForFiletype(&filetype)
+command! VanitySaveFavColor call SaveFavColor()
+command! VanitySetAllColorschemes call SetAllColorschemes()
+command! VanitySaveFavColorForFileType call SaveFavColorForFileType(&filetype)
+command! VanityLoadDefaultColortheme call s:LoadDefaultColortheme(&filetype)
+command! VanityLoadFavouriteColorthemes call s:LoadFavouriteColorthemes(&filetype)
+command! VanityCycleFavourites call SetFavouriteColorschemes()
+command! VanityCycleFavouritesForFiletype call SetFavouriteColorschemesForFiletype()
+command! VanityCycleAll call SetAllColorschemes()
 
 function! VNextCol()
   call s:SwitchCol(1)
 endfunction
 
-
 function! VPrevCol()
   call s:SwitchCol(-1)
 endfunction
 
-function! s:CheckForDefaultColourtheme()
+function! s:EnsureColorValueIsSet()
+  if len(s:colschemes) == 0
+    call s:SetActiveColorschemes('all')
+  endif 
   if !exists("g:colors_name")
     let g:colors_name=s:colschemes[0]
-    if filereadable(glob('~/.vim/Vanity/default'))
-      let g:colors_name=readfile(glob('~/.vim/Vanity/default'))[0]
-      let s:current = index(s:colschemes, g:colors_name)
-      if s:current > -1
-        call s:SetColor(s:current, 0)
+  endif
+endfunction
+
+function! s:LoadDefaultColortheme(file_type)
+  call s:EnsureColorValueIsSet()
+  if filereadable(glob('~/.vim/Vanity/default'))
+    let l:d_cs=readfile(glob('~/.vim/Vanity/default'))[0]
+    execute 'let s:default_colors = ' . l:d_cs
+    let s:default_colors = extend(s:default_colors, g:vanity_default_colors)
+    let s:default_colors = extend(s:default_colors, g:vanity_default_colors)
+    if has_key(s:default_colors, a:file_type)
+      let g:colors_name = s:default_colors[a:file_type] 
+    elseif has_key(s:default_colors, 'allFiles')
+      let g:colors_name = s:default_colors['allFiles'] 
+    else 
+      let g:colors_name=s:colschemes[0]
+    endif
+    let s:current = index(s:colschemes, g:colors_name)
+    if s:current > -1
+      call s:SetColor(s:current, 0)
+    endif
+  endif
+endfunction
+
+function! s:LoadFavouriteColorthemes(file_type)
+  call s:EnsureColorValueIsSet()
+  let l:favs = []
+  if filereadable(glob('~/.vim/Vanity/favourites'))
+    let l:fav_io=readfile(glob('~/.vim/Vanity/favourites'))[0]
+    execute 'let l:favourite_colors = ' . l:fav_io
+    let l:favourite_colors = extend(l:favourite_colors, g:vanity_favourite_colors)
+    if exists("l:favourite_colors")
+      if has_key(l:favourite_colors, a:file_type)
+        let l:favs = l:favourite_colors[a:file_type] 
+      else 
+        let l:favs=getcompletion('', 'color')
       endif
     endif
+    :call add(l:favs, g:colors_name)
+    let s:colschemes=uniq(l:favs)
   endif
 endfunction
 
@@ -95,15 +161,7 @@ function! s:SetColor(n, thenDc)
   if s:setColorsCurrentIncrementTimer !=1 && a:thenDc <s:setColorsCurrentIncrementTimer 
     return
   endif
-
-  if !exists("g:colors_name")
-    call s:CheckForDefaultColourtheme()
-  endif
-
-  if len(s:colschemes) == 0
-    call s:SetActiveColorschemes('all')
-  endif 
-
+  call s:EnsureColorValueIsSet()
   let s:current = index(s:colschemes, g:colors_name)
 
   let s:notChanged = 1
@@ -162,5 +220,14 @@ function! VRandCol()
   call s:SetColor(s:current-l:rand, 1)
 endfunction
 
-call s:CheckForDefaultColourtheme()
+:augroup setcolorgroup 
+    set background=dark
+    hi clear
+    if exists("syntax_on")
+    syntax reset
+    endif
+    " Set colour scheme
+    autocmd BufNewFile,BufRead * :VanityLoadDefaultColortheme
+:augroup END
+
 let s:fully_loaded_vanity = 1

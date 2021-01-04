@@ -9,7 +9,7 @@ CONTENTS
 ==============================================================================
 1. Intro                                                *vanity*
 
-The vanity allows you to switch betwwen available colourschmems in a simple way 
+The vanity allows you to switch between available colourschmems in a simple way 
 
 ==============================================================================
 2. Requirements                                         *vanityRequirements*

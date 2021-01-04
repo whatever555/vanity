@@ -29,7 +29,74 @@ https://github.com/chriskempson/base16-vim
 https://github.com/mswift42/vim-themes  
 https://github.com/mkarmona/colorsbox  
    
-Installation
+
+Basic Installation
+------------
+
+For a more detailed explanation and for more installation options see (Detailed Installation)[#detailed-installation]
+
+#### [Vundle.vim](https://github.com/VundleVim/Vundle.vim)
+```vim
+call vundle#begin()
+Plugin 'whatever555/vanity'
+call vundle#end()
+```
+
+Usage
+------------
+
+## Getting started
+
+To cycle through available color schemes call `:VanityNextCol`.  
+When you come across a colour scheme you LIKE call `:VanitySaveFavColorForFileType` to add it as a favourite.  
+When you come across a colour scheme you LOVE call `:VanitySetDefaultColorForFiletype` to add it as the default colour scheme for that filetype.  
+
+## Commands
+
+#### Cycling through color schemes  
+`:VanityNextCol`: Switch to next color scheme  
+`:VanityPrevCol`: Switch to previous color scheme  
+`:VanityRandomCol`: Switch to a random color scheme  
+  
+### Default color schemes  
+`:VanitySetDefaultColor`: Set default color scheme for all file types   
+`:VanitySetDefaultColorForFiletype`: Set default color scheme for current file type   
+
+### Favourite Colorschemes
+`VanitySaveFavColor`: Save a favourite colourscheme (for all filetypes)   
+`VanitySaveFavColorForFileType`: Save a favourite colourscheme (for crrrent filetype)   
+
+`VanityCycleAll`:  Set current list of cyclable colorschemes to all available    
+`VanityCycleFavourites`:  Set current list of cyclable colorschemes to favourites only (for all filetypes)    
+`VanityCycleFavouritesForFiletype`:  Set current list of cyclable colorschemes to favourites only (for current filetype only)    
+
+
+### Default Colorschemes
+`VanityLoadDefaultColortheme`: Set colourtheme to default (for current filetype if set, otherwise it will set to 'allFiles' default type)      
+
+Recommended Mappings
+------------
+There are no mapped keys but you can add this to your `.vimrc` file to enable colorscheme cycling with PageUp and PageDown keys
+  
+
+```
+nnoremap <PageDown> :VanityPrevCol<CR>  
+nnoremap <PageUp> :VanityNextCol<CR>  
+```
+
+
+Help 
+------------
+
+`:help vanity`
+
+
+Demo
+------------
+
+![Screenshot](https://user-images.githubusercontent.com/1413475/102799675-c0053480-43aa-11eb-813b-32c6db54f84e.gif)
+
+Detailed Installation
 ------------
 
 #### Vim 8+ packages
@@ -84,52 +151,3 @@ call dein#end()
 ```bash
 apt-vim install -y https://github.com/whatever555/vanity.git
 ```
-
-Usage
-------------
-
-To cycle through available colorschemes:  
-next colour:   
-`:call VNextCol()`   
-previous colour:   
-`:call VPrevCol()`   
-random colour:   
-`:call VRandCol()`   
-  
-To set the current colorscheme to default:  
-`:call SetDefaultColorscheme()`   
-  
-To save the current colorscheme to your list of favourites:  
-`:call SaveFavColor()`   
-  
-To allow only your favourite colorschemes to be cycled:  
-`call SetFavouriteColorSchemes()`  
-
-To allow all colorschemes to be cycled:  
-`call SetFavouriteColorSchemes()`  
-  
-To view and edit favourite colour list:  
-`coming soon`
-
-
-Recommended Mappings
-------------
-There are no mapped keys but you can add this to your `.vimrc` file to enable colorscheme cycling with PageUp and PageDown keys
-  
-
-```
-nnoremap <PageDown> :call VPrevCol()<CR>  
-nnoremap <PageUp> :call VNextCol()<CR>  
-```
-
-
-Help 
-------------
-
-`:help vanity`
-
-
-Demo
-------------
-
-![Screenshot](https://user-images.githubusercontent.com/1413475/102799675-c0053480-43aa-11eb-813b-32c6db54f84e.gif)
