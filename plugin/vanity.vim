@@ -58,12 +58,26 @@ function! s:SwitchCol(n)
   echo l:nxtCol.": ".s:colschemes[l:nxtCol]
 endfunction
 
+command! VNextCol call s:SwitchCol(1)
+command! VPrevCol call s:SwitchCol(-1)
+command! VRandCol call VRandCol()
+command! SetDefaultColor call SetDefaultColor()
+command! SaveFavColor call SaveFavColor()
+command! SetFavouriteColorschemes call SetFavouriteColorschemes()
+command! SetAllColorschemes call SetAllColorschemes()
+
+
+
+
 function! VNextCol()
   call s:SwitchCol(1)
 endfunction
+
+
 function! VPrevCol()
   call s:SwitchCol(-1)
 endfunction
+
 function! s:CheckForDefaultColourtheme()
   if !exists("g:colors_name")
     let g:colors_name=s:colschemes[0]
