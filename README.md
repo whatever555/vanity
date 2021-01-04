@@ -13,7 +13,6 @@ With this plugin installed you can:
 
 ![Screenshot](https://user-images.githubusercontent.com/1413475/103574674-43a14400-4ec8-11eb-99b1-4176412c224e.gif)
 
-
 [Video](https://user-images.githubusercontent.com/1413475/103573959-038d9180-4ec7-11eb-9170-2dfd2e2e4fd3.mp4)
 
 Requirements
@@ -55,7 +54,7 @@ When you come across a colour scheme you LOVE call `:VanitySetDefaultColorForFil
 
 #### Favourite Colorschemes
 `:VanitySaveFavColor`: Save a favourite colourscheme (for all filetypes)   
-`:VanitySaveFavColorForFileType`: Save a favourite colourscheme (for crrrent filetype)   
+`:VanitySaveFavColorForFileType`: Save a favourite colourscheme (for crrent filetype)   
 
 `:VanityCycleAll`:  Set current list of cyclable colorschemes to all available    
 `:VanityCycleFavourites`:  Set current list of cyclable colorschemes to favourites only (for all filetypes)    
@@ -68,7 +67,7 @@ When you come across a colour scheme you LOVE call `:VanitySetDefaultColorForFil
 Configuration 
 ------------
 Default colorschemes are saved to ~/.vim/Vanity/default   
-Favourte colorschemes are saved to ~/.vim/Vanity/favourites   
+Favourite colorschemes are saved to ~/.vim/Vanity/favouriteColorSchemes   
 
 You can also set these in your `.vimrc` file by changing the `g:vanity_default_colors` and `g:vanity_favourite_colors` variables.
   
