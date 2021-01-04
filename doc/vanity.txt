@@ -30,22 +30,80 @@ https://github.com/mkarmona/colorsbox
 ==============================================================================
 3. Usage                                                *vanityUsage*
 
-To cycle through available colorschemes:  
-next colour: `:call VNextCol()`   
-previous colour: `:call VPrevCol()`   
-random colour: `:call VRandCol()`   
-  
-To set the current colorscheme to default:  
-`:call SetDefaultColorscheme()`   
-  
-To save the current colorscheme to your list of favourites:  
-`:call SaveFavColor()`   
-  
-To allow only your favourite colorschemes to be cycled:  
-`call SetFavouriteColorSchemes()`  
+### Getting started
 
-To allow all colorschemes to be cycled:  
-`call SetFavouriteColorSchemes()`  
+To cycle through available color schemes call `:VanityNextCol`.  
+When you come across a colour scheme you LIKE call `:VanitySaveFavColorForFileType` to add it as a favourite.  
+When you come across a colour scheme you LOVE call `:VanitySetDefaultColorForFiletype` to add it as the default colour scheme for that filetype.  
+
+### Commands
+
+#### Cycling through color schemes  
+`:VanityNextCol`: Switch to next color scheme  
+`:VanityPrevCol`: Switch to previous color scheme  
+`:VanityRandomCol`: Switch to a random color scheme  
+  
+#### Default color schemes  
+`:VanitySetDefaultColor`: Set default color scheme for all file types   
+`:VanitySetDefaultColorForFiletype`: Set default color scheme for current file type   
+
+#### Favourite Colorschemes
+`VanitySaveFavColor`: Save a favourite colourscheme (for all filetypes)   
+`VanitySaveFavColorForFileType`: Save a favourite colourscheme (for crrrent filetype)   
+
+`VanityCycleAll`:  Set current list of cyclable colorschemes to all available    
+`VanityCycleFavourites`:  Set current list of cyclable colorschemes to favourites only (for all filetypes)    
+`VanityCycleFavouritesForFiletype`:  Set current list of cyclable colorschemes to favourites only (for current filetype only)    
+
+
+#### Default Colorschemes
+`VanityLoadDefaultColorscheme`: Set colourscheme to default (for current filetype if set, otherwise it will set to 'allFiles' default type)      
+
+Configuration 
+------------
+Default colorschemes are saved to ~/.vim/Vanity/default   
+Favourte colorschemes are saved to ~/.vim/Vanity/favourites   
+
+You can also set these in your `.vimrc` file by changing the `g:vanity_default_colors` and `g:vanity_favourite_colors` variables.
+  
+eg:  
+```
+g:vanity_default_colors = {'javascript': 'xterm16', 'text': 'wwdc17'}
+
+g:vanity_favourite_colors = {
+    'javascript': ['deus', 'solarized', 'vcbc'], 
+    'python': ['solarized'], 
+    'vim': ['c64']
+}
+
+```
+
+To set a default or favourite colorscheme for all filetypes you can use the 'allFiles' key. 
+eg:  
+
+```
+g:vanity_default_colors = {'allFiles': 'deus'}
+
+g:vanity_favourite_colors = {
+    'allFiles': ['deus', 'solarized', 'vcbc'], 
+}
+
+```
+
+and for files with no filetypes you can just use '' as they key.  
+eg:  
+
+```
+g:vanity_default_colors = {'': 'xterm16'}
+
+g:vanity_favourite_colors = {
+    '': ['deus', 'solarized', 'vcbc'], 
+    'python': ['solarized'], 
+    'vim': ['c64']
+}
+
+```
+
   
 ------------------------------------------------------------------------------
 4. Files Locations                                       *vanityFiles*
