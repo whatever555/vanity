@@ -10,6 +10,7 @@ With this plugin installed you can:
 1. Cycle through available colourschems  
 2. Set a default colourscheme   
 3. Set a group of favourite colourschemes   
+4. Set different colourschemes for different filetypes   
 
 ![Screenshot](https://user-images.githubusercontent.com/1413475/103574674-43a14400-4ec8-11eb-99b1-4176412c224e.gif)
 
