@@ -65,6 +65,52 @@ When you come across a colour scheme you LOVE call `:VanitySetDefaultColorForFil
 #### Default Colorschemes
 `VanityLoadDefaultColorscheme`: Set colourscheme to default (for current filetype if set, otherwise it will set to 'allFiles' default type)      
 
+Configuration 
+------------
+Default colorschemes are saved to ~/.vim/Vanity/default   
+Favourte colorschemes are saved to ~/.vim/Vanity/favourites   
+
+You can also set these in your `.vimrc` file by changing the `g:vanity_default_colors` and `g:vanity_favourite_colors` variables.
+  
+eg:  
+```
+g:vanity_default_colors = {'javascript': 'xterm16', 'text': 'wwdc17'}
+
+g:vanity_favourite_colors = {
+    'javascript': ['deus', 'solarized', 'vcbc'], 
+    'python': ['solarized'], 
+    'vim': ['c64']
+}
+
+```
+
+To set a default or favouritete colorscheme for all filetypes you can use the 'allFiles' key. 
+eg:  
+
+```
+g:vanity_default_colors = {'allFiles': 'deus'}
+
+g:vanity_favourite_colors = {
+    'allFiles': ['deus', 'solarized', 'vcbc'], 
+}
+
+```
+
+and for files with no filetypes you can just use '' as they key.  
+eg:  
+
+```
+g:vanity_default_colors = {'': 'xterm16'}
+
+g:vanity_favourite_colors = {
+    '': ['deus', 'solarized', 'vcbc'], 
+    'python': ['solarized'], 
+    'vim': ['c64']
+}
+
+```
+
+
 Recommended Mappings
 ------------
 There are no mapped keys but you can add this to your `.vimrc` file to enable colorscheme cycling with PageUp and PageDown keys
