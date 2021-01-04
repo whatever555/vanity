@@ -17,17 +17,7 @@ With this plugin installed you can:
 
 Requirements
 ------------
-You will need to have vim 8+ and  some colourschemes installed to get the most out of this plugin.  
-Here are some options:    
-https://github.com/flazz/vim-colorschemes  
-https://vimawesome.com/plugin/awesome-vim-colorschemes  
-https://vimawesome.com/plugin/vim-colorschemes-sweeter-than-fiction  
-https://github.com/mcchrish/vim-no-color-collections  
-https://github.com/rainglow/vim  
-https://github.com/nightsense/vimspectr  
-https://github.com/chriskempson/base16-vim  
-https://github.com/mswift42/vim-themes  
-https://github.com/mkarmona/colorsbox  
+You will need to have vim 8+ and  some colourschemes (e.g: https://github.com/flazz/vim-colorschemes) installed to get the most out of this plugin.  
    
 
 Basic Installation
@@ -45,24 +35,24 @@ call vundle#end()
 Usage
 ------------
 
-## Getting started
+### Getting started
 
 To cycle through available color schemes call `:VanityNextCol`.  
 When you come across a colour scheme you LIKE call `:VanitySaveFavColorForFileType` to add it as a favourite.  
 When you come across a colour scheme you LOVE call `:VanitySetDefaultColorForFiletype` to add it as the default colour scheme for that filetype.  
 
-## Commands
+### Commands
 
 #### Cycling through color schemes  
 `:VanityNextCol`: Switch to next color scheme  
 `:VanityPrevCol`: Switch to previous color scheme  
 `:VanityRandomCol`: Switch to a random color scheme  
   
-### Default color schemes  
+#### Default color schemes  
 `:VanitySetDefaultColor`: Set default color scheme for all file types   
 `:VanitySetDefaultColorForFiletype`: Set default color scheme for current file type   
 
-### Favourite Colorschemes
+#### Favourite Colorschemes
 `VanitySaveFavColor`: Save a favourite colourscheme (for all filetypes)   
 `VanitySaveFavColorForFileType`: Save a favourite colourscheme (for crrrent filetype)   
 
@@ -71,7 +61,7 @@ When you come across a colour scheme you LOVE call `:VanitySetDefaultColorForFil
 `VanityCycleFavouritesForFiletype`:  Set current list of cyclable colorschemes to favourites only (for current filetype only)    
 
 
-### Default Colorschemes
+#### Default Colorschemes
 `VanityLoadDefaultColorscheme`: Set colourscheme to default (for current filetype if set, otherwise it will set to 'allFiles' default type)      
 
 Recommended Mappings
@@ -151,3 +141,15 @@ call dein#end()
 ```bash
 apt-vim install -y https://github.com/whatever555/vanity.git
 ```
+
+More colorschemes 
+------------
+https://github.com/flazz/vim-colorschemes  
+https://vimawesome.com/plugin/awesome-vim-colorschemes  
+https://vimawesome.com/plugin/vim-colorschemes-sweeter-than-fiction  
+https://github.com/mcchrish/vim-no-color-collections  
+https://github.com/rainglow/vim  
+https://github.com/nightsense/vimspectr  
+https://github.com/chriskempson/base16-vim  
+https://github.com/mswift42/vim-themes  
+https://github.com/mkarmona/colorsbox  
