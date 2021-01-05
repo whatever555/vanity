@@ -1,4 +1,4 @@
-Vanity: Vim plugin for managing colorschemes 
+:womans_hat: Vanity: Vim plugin for managing colorschemes 
 =============
 
 Introduction
