@@ -19,7 +19,7 @@ With this plugin installed you can:
 Requirements
 ------------
 You will need to have vim 8+ and  some colourschemes (e.g: https://github.com/flazz/vim-colorschemes) installed to get the most out of this plugin.  
-It is also recommended that you install a syntax plugin such as (polygot)[Plugin 'sheerun/vim-polyglot']
+It is also recommended that you install a syntax plugin such as (polygot)[https://github.com/sheerun/vim-polyglot]
 
 Basic Installation
 ------------
@@ -36,11 +36,22 @@ call vundle#end()
 Usage
 ------------
 
+### Recommended settings (Vundle)
+Start by adding vanity, polygot and some colorschemes to your .`~/.vimrc` file using vim plugins.  
+
+```
+Plugin 'whatever555/vanity'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'flazz/vim-colorschemes'
+```
+Then run `:PluginInstall` and you should now have a colorscheme setup for vim  
+
+
 ### Getting started
 
-To cycle through available color schemes call `:VanityNextCol`.  
-When you come across a colour scheme you LIKE call `:VanitySaveFavColorForFileType` to add it as a favourite.  
-When you come across a colour scheme you LOVE call `:VanitySetDefaultColorForFiletype` to add it as the default colour scheme for that filetype.  
+To cycle through available color schemes run `:VanityNextCol`.  
+When you come across a colour scheme you LIKE run `:VanitySaveFavColorForFileType` to add it as a favourite.  
+When you come across a colour scheme you LOVE run `:VanitySetDefaultColorForFiletype` to add it as the default colour scheme for that filetype.  
 
 ### Commands
 
