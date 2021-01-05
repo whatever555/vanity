@@ -19,7 +19,7 @@ With this plugin installed you can:
 Requirements
 ------------
 You will need to have vim 8+ and  some colourschemes (e.g: https://github.com/flazz/vim-colorschemes) installed to get the most out of this plugin.  
-   
+It is also recommended that you install a syntax plugin such as (polygot)[Plugin 'sheerun/vim-polyglot']
 
 Basic Installation
 ------------
