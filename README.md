@@ -85,9 +85,9 @@ You can also set these in your `.vimrc` file by changing the `g:vanity_default_c
   
 eg:  
 ```
-g:vanity_default_colors = {'javascript': 'xterm16', 'text': 'wwdc17'}
+let g:vanity_default_colors = {'javascript': 'xterm16', 'text': 'wwdc17'}
 
-g:vanity_favourite_colors = {
+let g:vanity_favourite_colors = {
     'javascript': ['deus', 'solarized', 'vcbc'], 
     'python': ['solarized'], 
     'vim': ['c64']
@@ -99,9 +99,9 @@ To set a default or favourite colorscheme for all filetypes you can use the 'all
 eg:  
 
 ```
-g:vanity_default_colors = {'allFiles': 'deus'}
+let g:vanity_default_colors = {'allFiles': 'deus'}
 
-g:vanity_favourite_colors = {
+let g:vanity_favourite_colors = {
     'allFiles': ['deus', 'solarized', 'vcbc'], 
 }
 
@@ -111,9 +111,9 @@ and for files with no filetypes you can just use '' as they key.
 eg:  
 
 ```
-g:vanity_default_colors = {'': 'xterm16'}
+let g:vanity_default_colors = {'': 'xterm16'}
 
-g:vanity_favourite_colors = {
+let g:vanity_favourite_colors = {
     '': ['deus', 'solarized', 'vcbc'], 
     'python': ['solarized'], 
     'vim': ['c64']

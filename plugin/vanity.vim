@@ -10,9 +10,14 @@ silent !mkdir ~/.vim/Vanity > /dev/null 2>&1
 let g:vanity_unsupported_colors = ['tcsoft','surveyor','sunburst','soruby','guardian','grayorange','distill','edo_sea','editplus', 'dracula_bold','dracula','dark-ruby', 'corn','autumnleaf','AutumnLeaf','PaperColor', 'abyss','briofita','nordisk','mythos']
 
 let s:colschemes=getcompletion('', 'color')
-let g:vanity_default_colors = {}
-let g:vanity_favourite_colors = {}
 
+if !exists("g:vanity_default_colors")
+  let g:vanity_default_colors = {}
+endif
+
+if !exists("g:vanity_favourite_colors")
+  let g:vanity_favourite_colors = {}
+endif
 function! s:SetActiveColorschemes(conf)
   if a:conf == 'file favourites'
     :call s:LoadFavouriteColorschemes(&filetype)
@@ -118,30 +123,32 @@ endfunction
 
 function! s:LoadDefaultColorscheme(file_type)
   call s:EnsureColorValueIsSet()
+  let l:d_cs=""
   if filereadable(glob('~/.vim/Vanity/default'))
     let l:d_cs=readfile(glob('~/.vim/Vanity/default'))[0]
-    let s:default_colors = {}
-    let l:indexOfCurly = stridx(l:d_cs, '}')
-    let l:default_colors_tmp = {}
-    if l:indexOfCurly > -1
-      execute 'let l:default_colors_tmp = ' . l:d_cs
-      let s:default_colors = l:default_colors_tmp 
-    elseif len(l:d_cs) > 0
-      let s:default_colors = {'allFiles': l:d_cs}
-    endif
-    let s:default_colors = extend(s:default_colors, g:vanity_default_colors)
-    let s:default_colors = extend(s:default_colors, g:vanity_default_colors)
-    if has_key(s:default_colors, a:file_type)
-      let g:colors_name = s:default_colors[a:file_type] 
-    elseif has_key(s:default_colors, 'allFiles')
-      let g:colors_name = s:default_colors['allFiles'] 
-    else 
-      let g:colors_name=s:colschemes[0]
-    endif
-    let s:current = index(s:colschemes, g:colors_name)
-    if s:current > -1
-      call s:SetColor(s:current, 0)
-    endif
+  endif
+
+  let s:default_colors = {}
+  let l:indexOfCurly = stridx(l:d_cs, '}')
+  let l:default_colors_tmp = {}
+  if l:indexOfCurly > -1
+    execute 'let l:default_colors_tmp = ' . l:d_cs
+    let s:default_colors = l:default_colors_tmp 
+  elseif len(l:d_cs) > 0
+    let s:default_colors = {'allFiles': l:d_cs}
+  endif
+  let s:default_colors = extend(s:default_colors, g:vanity_default_colors)
+  echom s:default_colors
+  if has_key(s:default_colors, a:file_type)
+    let g:colors_name = s:default_colors[a:file_type] 
+  elseif has_key(s:default_colors, 'allFiles')
+    let g:colors_name = s:default_colors['allFiles'] 
+  else 
+    let g:colors_name=s:colschemes[0]
+  endif
+  let s:current = index(s:colschemes, g:colors_name)
+  if s:current > -1
+    call s:SetColor(s:current, 0)
   endif
 endfunction
 
