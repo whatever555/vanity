@@ -138,7 +138,6 @@ function! s:LoadDefaultColorscheme(file_type)
     let s:default_colors = {'allFiles': l:d_cs}
   endif
   let s:default_colors = extend(s:default_colors, g:vanity_default_colors)
-  echom s:default_colors
   if has_key(s:default_colors, a:file_type)
     let g:colors_name = s:default_colors[a:file_type] 
   elseif has_key(s:default_colors, 'allFiles')
