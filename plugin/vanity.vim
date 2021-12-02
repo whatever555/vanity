@@ -58,7 +58,7 @@ let s:setColorsCurrentIncrementTimer=0
     endif
     :call add(s:favourite_colors[a:file_type], l:c)
 call filter(s:favourite_colors[a:file_type], 'count(s:favourite_colors[a:file_type], v:val) == 1')
-    :call writefile([string(s:favourite_colors)], expand('~/.vim/Vanity/favouriteColorSchemes'), "w")
+    :call writefile([string(s:favourite_colors)], expand('~/.vim/Vanity/favouriteColorSchemes'), "s")
 :endfunction
 
 :function SetDefaultColorForFiletype(file_type)
@@ -67,7 +67,7 @@ call filter(s:favourite_colors[a:file_type], 'count(s:favourite_colors[a:file_ty
       :let s:default_colors = {}
     endif 
     :let s:default_colors[a:file_type] = l:c
-    :call writefile([string(s:default_colors)], expand('~/.vim/Vanity/default'), "w")
+    :call writefile([string(s:default_colors)], expand('~/.vim/Vanity/default'), "s")
 :endfunction
 
 :function SetDefaultColor()
