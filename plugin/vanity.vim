@@ -245,7 +245,7 @@ endfunction
     syntax reset
     endif
     " Set colour scheme
-    autocmd VimEnter,BufReadPost,BufNewFile,BufRead * :VanityLoadDefaultColorscheme
+    autocmd BufEnter,VimEnter,BufReadPost,BufNewFile,BufRead * :VanityLoadDefaultColorscheme
 :augroup END
 
 let s:fully_loaded_vanity = 1
